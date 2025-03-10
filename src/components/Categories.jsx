@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import bgOne from '../assets/categories/bg-one.png'
 import bgTwo from '../assets/categories/bg-two.png'
 import bgThree from '../assets/categories/bg-three.png'
-import bgFour from '../assets/categories/bg-Four.png'
+import bgFour from '../assets/categories/bg-four.png'
 import bgFive from '../assets/categories/bg-five.png'
 import bgSix from '../assets/categories/bg-six.png'
 
