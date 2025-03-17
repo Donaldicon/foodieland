@@ -68,7 +68,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full font-Inter mb-20 flex justify-center items-center pt-[120px] bigScreens:px-[5%]">
+    <div className="w-full font-Inter pb-20 flex justify-center items-center pt-[150px] bigScreens:px-[5%] ">
 
         <div className="relative w-full flex justify-center items-center overflow-hidden">
           <div className="relative w-full h-[500px] flex justify-center items-center">

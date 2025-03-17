@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -29,7 +29,17 @@ const initialImages = [
 ];
 
 const Tasty = () => {
-  const [images, setImages] = useState(initialImages);
+  // const [images, setImages] = useState(initialImages);
+
+  const [images, setImages] = useState(() => {
+    const savedImages = localStorage.getItem('likedImages');
+    return savedImages ? JSON.parse(savedImages) : initialImages
+  })
+
+  useEffect(() => {
+    localStorage.setItem("likedImages", JSON.stringify(images))
+  }, [images])
+  
 
   const toggleLike = (id) => {
     setImages((prevImages) =>
@@ -40,9 +50,9 @@ const Tasty = () => {
   };
 
   return (
-      <div className="px-[5%] bigScreens:px-[13%] flex flex-col items-center mt-[120px] font-Inter mb-5">
-        <h1 className="text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold">Simple and Tasty Recipes</h1>
-        <p className="mt-3 w-[720px] bigScreens:w-[1000px] text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black text-opacity-50">
+      <div className="px-[5%] bigScreens:px-[13%] flex flex-col items-center py-[70px] font-Inter mb-5">
+        <h1 className="text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold text-black dark:text-gray-200">Simple and Tasty Recipes</h1>
+        <p className="mt-3 w-[720px] bigScreens:w-[1000px] text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black dark:text-gray-200 text-opacity-50">
           Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim 
         </p>
 
@@ -52,7 +62,7 @@ const Tasty = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: true }}
         >
-          <div className="grid grid-cols-3 gap-16 bigScreens:gap-20 mt-20">
+          <div className="grid grid-cols-3 gap-16 bigScreens:gap-20 mt-10">
             {images.map((image) => (
               <div key={image.id} className="relative w-full">
                 <img src={tastyBg} alt="" className={`rounded-2xl ${image.id === 6 ? 'w-[0px]' : 'w-[400px]  bigScreens:w-[600px]'} object-cover h-[305px] xl:h-[380px] bigScreens:h-[550px]`} />

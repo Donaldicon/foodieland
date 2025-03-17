@@ -15,7 +15,7 @@ import About from './pages/About'
 const Routing = () => {
 
   return (
-    <div>
+    <div className=''>
         <Navbar />
         <Routes>
             <Route element={<Home />} path='/' />

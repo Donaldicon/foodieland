@@ -13,9 +13,9 @@ import { Link } from 'react-router-dom'
 
 const CheckOut = () => {
   return (
-        <section className="bg-gradient-to-b from-[#E7F9FD00] to-[#E7F9FD] mt-20 py-14 px-[5%] bigScreens:px-[13%] font-Inter flex flex-col items-center justify-center">
+        <section className="bg-gradient-to-b from-[#E7F9FD00] to-[#E7F9FD] mt-10 pb-20 px-[5%] bigScreens:px-[13%] font-Inter flex flex-col items-center justify-center text-black dark:text-gray-200">
             <h1 className='text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold'>Check out @foodieland on Instagram</h1>
-            <p className='mt-3 w-[720px] bigScreens:w-[1000px] text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black text-opacity-50'>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+            <p className='mt-3 w-[720px] bigScreens:w-[1000px] text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black dark:text-gray-200 text-opacity-50'>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
             <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

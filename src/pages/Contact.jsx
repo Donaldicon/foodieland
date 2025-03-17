@@ -5,7 +5,7 @@ import CheckDelicious from '../components/CheckDelicious'
 
 const Contact = () => {
   return (
-    <div>
+    <div className='pt-[150px]'>
       <ContactChef />
       <Subscribe />
       <CheckDelicious />

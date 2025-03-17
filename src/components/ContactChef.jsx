@@ -17,10 +17,10 @@ const ContactChef = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <div className="flex space-x-10 items-start py-[150px] px-[5%] bigScreens:px-[13%] font-Inter">
+    <div className="flex space-x-10 items-start mb-20 px-[5%] bigScreens:px-[13%] font-Inter">
       <img src={contact} alt="" className="w-[30%] max-h-[380px] object-contain"/>
       <form
-        className="w-[65%] bg-white rounded-lg space-y-6 text-[14px] text-black text-opacity-60"
+        className="w-[65%] bg-white dark:text-gray-200 dark:bg-gray-700 bg rounded-lg space-y-6 text-[14px] text-black text-opacity-60 "
       >
         <div className="grid grid-cols-2 gap-6">
           <div>
@@ -57,10 +57,10 @@ const ContactChef = () => {
               placeholder="Enter subject..."
             />
           </div>
-          <div className="relative  text-black text-opacity-40">
+          <div className="relative  text-black dark:text-gray-200 text-opacity-40">
             <label className="block mb-1 font-semibold">Enquiry Details</label>
             <div
-              className="border p-3 w-full rounded flex justify-between items-center cursor-pointer"
+              className="border p-3 w-full rounded flex justify-between items-center cursor-pointer bg-white"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {formData.enquiry || "Select an option"}

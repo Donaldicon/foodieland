@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import deliciousOne from '../assets/delicious/delicious-one.png'
@@ -28,7 +28,16 @@ const initialImages = [
   ];
 
 const TryDelicious = () => {
-    const [images, setImages] = useState(initialImages);
+    const [images, setImages] = useState(() => {
+      const savedImages = localStorage.getItem('likedImage');
+      return savedImages ? JSON.parse(savedImages) : initialImages;
+    });
+
+    useEffect(() => {
+      localStorage.setItem("likedImage", JSON.stringify(images))
+
+    }, [images])
+    
 
     const toggleLike = (id) => {
       setImages((prevImages) =>
@@ -40,8 +49,8 @@ const TryDelicious = () => {
   return (
     <section className='py-24 px-[5%] bigScreens:px-[13%] font-Inter flex flex-col items-center justify-center '>
         <div className='w-full flex items-center justify-between'>
-            <h1 className='w-[37%] text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold'>Try this delicious recipe to make your day</h1>
-            <p className='w-[50%] mt-3 text-[14px] xl:text-[17px] bigScreens:text-[20px] text-black text-opacity-50'>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+            <h1 className='w-[37%] text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold text-black dark:text-gray-200'>Try this delicious recipe to make your day</h1>
+            <p className='w-[50%] mt-3 text-[14px] xl:text-[17px] bigScreens:text-[20px] text-black dark:text-gray-200 text-opacity-50'>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
         </div>
             <motion.div
             initial={{ y: 100, opacity: 0 }}
@@ -53,17 +62,17 @@ const TryDelicious = () => {
                     {images.map((image) => (
                     <div key={image.id} className="w-full relative">
                         <img src={image.src} alt="" className= {`rounded-2xl w-full`}/>
-                        <h1 className="text-[11px] xl:text-[15px] bigScreens:text-[26px] bigScreens:leading-[40px] leading-[20px] font-semibold mt-4">{image.title}</h1>
+                        <h1 className="text-[11px] xl:text-[15px] bigScreens:text-[26px] bigScreens:leading-[40px] leading-[20px] font-semibold mt-4 text-black dark:text-gray-200">{image.title}</h1>
 
                         <div className="flex items-center space-x-6 mt-5 ">
                             <div className="text-[12px] bigScreens:text-[18px] flex items-center space-x-2">
-                            <FontAwesomeIcon icon={faClock} className="bg-black text-white rounded-full text-[18px]  bigScreens:text-[25px]" />
-                            <div className="text-[#7f7f7f]">{image.time}</div>
+                            <FontAwesomeIcon icon={faClock} className="bg-black text-white dark:text-gray-200 rounded-full text-[18px]  bigScreens:text-[25px]" />
+                            <div className="text-[#7f7f7f] dark:text-gray-200">{image.time}</div>
                             </div>
                            
                             <div className="text-[12px] flex items-center space-x-2  bigScreens:text-[18px]">
-                                <FontAwesomeIcon icon={faCutlery} className="text-black rounded-full text-[18px]  bigScreens:text-[25px]" />
-                                <div className="text-[#7f7f7f]">{image.category}</div>
+                                <FontAwesomeIcon icon={faCutlery} className="text-black dark:text-gray-200 rounded-full text-[18px]  bigScreens:text-[25px]" />
+                                <div className="text-[#7f7f7f] dark:text-gray-200">{image.category}</div>
                             </div>
                         </div>
                         <div

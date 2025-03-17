@@ -3,7 +3,7 @@ import Tasty from '../components/Tasty'
 
 const Recipes = () => {
   return (
-    <div>
+    <div className='pt-[70px]'>
       <Tasty />
     </div>
   )

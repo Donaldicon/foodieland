@@ -3,7 +3,7 @@ import Routing from './Routing'
 
 const App = () => {
   return (
-    <div>
+    <div className='white dark:bg-gray-700'>
       <Routing />
     </div>
   )

@@ -15,7 +15,7 @@ const Footer = () => {
       }
     const year = new Date().getFullYear();
   return (
-    <div className='flex flex-col items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] mt-[50px] font-Inter bg-white'>
+    <div className='flex flex-col items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] mt-[50px] font-Inter bg-gray-200'>
         <div className='flex items-center justify-between w-full'>
             <div className='flex flex-col space-y-6'>
                 <img src={food} alt="" className='w-[150px] bigScreens:w-[220px]'/>

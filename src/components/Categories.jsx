@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+
+
 // import background Images
 import bgOne from '../assets/categories/bg-one.png'
 import bgTwo from '../assets/categories/bg-two.png'
@@ -17,6 +19,7 @@ import imgFour from '../assets/categories/img-four.png'
 import imgFive from '../assets/categories/img-five.png'
 import imgSix from '../assets/categories/img-six.png'
 
+
 const Categories = () => {
   return (
     <motion.div
@@ -25,12 +28,12 @@ const Categories = () => {
     transition={{duration:1, ease:'easeOut'}}
     viewport={{once:true}}
     >
-    <div className='px-[5%] bigScreens:px-[13%] font-Inter mt-10'>
+    <div className='px-[5%] bigScreens:px-[13%] font-Inter pt-10 dark:text-gray-200'>
         <div className='flex items-center justify-between'>
-            <h1 className='text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold'>Categories</h1>
-            <button className='text-[15px] font-medium bg-[#E7FAFE] px-4 py-3 rounded-2xl bigScreens:text-[18px]'>View All Categories</button>
+            <h1 className='text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold '>Categories</h1>
+            <button className='text-[15px] font-medium bg-[#E7FAFE] px-4 py-3 rounded-2xl bigScreens:text-[18px] text-black'>View All Categories</button>
         </div>
-        <div className='mt-20 bigScreens:mt-28 flex items-center justify-between w-[100%]'>
+        <div className='my-20 bigScreens:my-28 flex items-center justify-between w-[100%]'>
             <div className='relative w-[15%]'>
                 <img src={bgOne} alt="background image of category one" />
                 <p className='text-[12px] bigScreens:text-[18px] font-medium absolute bottom-5 left-[34%] bigScreens:left-[35%]'>Breakfast</p>
@@ -82,6 +85,7 @@ const Categories = () => {
 
 
         </div>
+        <hr className='dark:bg-gray-500'/>
     </div>
     </motion.div>
   )
