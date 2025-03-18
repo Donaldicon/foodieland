@@ -50,9 +50,9 @@ const Tasty = () => {
   };
 
   return (
-      <div className="px-[5%] bigScreens:px-[13%] flex flex-col items-center py-[70px] font-Inter mb-5">
-        <h1 className="text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold text-black dark:text-gray-200">Simple and Tasty Recipes</h1>
-        <p className="mt-3 w-[720px] bigScreens:w-[1000px] text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black dark:text-gray-200 text-opacity-50">
+      <div className="px-[5%] bigScreens:px-[13%] flex flex-col items-center py-[20px] lg:py-[70px] font-Inter mb-5">
+        <h1 className="text:[14px] md:text-[20px] lg:text-[30px] md:leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold text-black dark:text-gray-200">Simple and Tasty Recipes</h1>
+        <p className="mt-2 lg:mt-3 w-[90%] lg:w-[720px] bigScreens:w-[1000px] text-[10px] md:text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black dark:text-gray-200 text-opacity-50">
           Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim 
         </p>
 
@@ -62,36 +62,36 @@ const Tasty = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: true }}
         >
-          <div className="grid grid-cols-3 gap-16 bigScreens:gap-20 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-16 bigScreens:gap-20 mt-10">
             {images.map((image) => (
               <div key={image.id} className="relative w-full">
-                <img src={tastyBg} alt="" className={`rounded-2xl ${image.id === 6 ? 'w-[0px]' : 'w-[400px]  bigScreens:w-[600px]'} object-cover h-[305px] xl:h-[380px] bigScreens:h-[550px]`} />
+                <img src={tastyBg} alt="" className={`rounded-2xl ${image.id === 6 ? 'w-[0px]' : 'w-[400px]  bigScreens:w-[600px]'} object-cover h-[200px] smallPhones:h-[210px] md:h-[250px] lg:h-[305px] xl:h-[380px] bigScreens:h-[550px]`} />
                 <div className={`absolute top-0  ${image.id === 6 ? 'w-full left-0' : ' w-[90%] left-[5%]'}`}>
-                  <img src={image.src} alt="" className= {`rounded-2xl ${image.id === 6 ? 'w-full object-cover h-[305px] xl:h-[380px] bigScreens:h-[550px]' : 'w-full '}`}/>
-                  <h1 className="text-[18px] xl:text-[22px] bigScreens:text-[30px] bigScreens:leading-[40px] leading-[30px] font-semibold mt-4">{image.title}</h1>
+                  <img src={image.src} alt="" className= {`rounded-2xl ${image.id === 6 ? 'w-full object-cover h-[200px] smallPhones:h-[210px] md:h-[250px] lg:h-[305px] xl:h-[380px] bigScreens:h-[550px]' : 'w-full '}`}/>
+                  <h1 className="text-[12px] md:text-[14px] leading-[20px] lg:text-[18px] xl:text-[22px] bigScreens:text-[30px] bigScreens:leading-[40px] lg:leading-[30px] font-semibold mt-2 md:mt-4">{image.title}</h1>
                 </div>
-                <div className="flex items-center space-x-6 mt-8 absolute bottom-5 left-[5%]">
+                <div className="flex items-center space-x-2 md:space-x-4 lg:space-x-6 mt-8 absolute bottom-5 left-[5%]">
                   {image.category && image.id !== 6 && (
-                    <div className="text-[12px] bigScreens:text-[18px] flex items-center space-x-2">
-                      <FontAwesomeIcon icon={faClock} className="bg-white text-black rounded-full text-[18px]  bigScreens:text-[25px]" />
+                    <div className="text-[9px] md:text-[10px] lg:text-[12px] bigScreens:text-[18px] flex items-center space-x-1 lg:space-x-2">
+                      <FontAwesomeIcon icon={faClock} className="bg-white text-black rounded-full text-[10px] md:text-[14px] lg:text-[18px]  bigScreens:text-[25px]" />
                       <div className="text-[#7f7f7f]">{image.time}</div>
                     </div>
                   )}
                     {image.category && image.id !== 6 && (
-                      <div className="text-[12px] flex items-center space-x-2  bigScreens:text-[18px]">
-                          <FontAwesomeIcon icon={faCutlery} className="text-black rounded-full text-[18px]  bigScreens:text-[25px]" />
+                      <div className="text-[9px] md:text-[10px] lg:text-[12px] bigScreens:text-[18px] flex items-center space-x-1 lg:space-x-2">
+                          <FontAwesomeIcon icon={faCutlery} className="text-black rounded-full text-[10px] md:text-[14px] lg:text-[18px]  bigScreens:text-[25px]" />
                           <div className="text-[#7f7f7f]">{image.category}</div>
                       </div>
                     )}
                 </div>
                 {image.id !== 6 && (
                   <div
-                      className="absolute top-5 right-10 bg-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer"
+                      className="absolute top-2 xl:top-5 right-5 xl:right-10 bg-white w-5 h-5 md:w-7 md:h-7 lg:w-10 lg:h-10 flex items-center justify-center rounded-full cursor-pointer"
                       onClick={() => toggleLike(image.id)}
                   >
                   <FontAwesomeIcon
                   icon={faHeart}
-                  className={`transition-all ease-in-out duration-300 text-[20px] ${
+                  className={`transition-all ease-in-out duration-300 text-[10px] md:text-[15px] lg:text-[20px] ${
                       image.liked ? "text-red-500" : "text-gray-300"
                   }`}
                   />

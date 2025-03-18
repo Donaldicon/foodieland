@@ -10,6 +10,7 @@ import Recipes from './pages/Recipes'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import ErrorPage from './pages/ErrorPage'
 
 
 const Routing = () => {
@@ -23,6 +24,7 @@ const Routing = () => {
             <Route element={<Blog/>} path='/Blog' />
             <Route element={<Contact/>} path='/Contact' />
             <Route element={<About/>} path='/About' />
+            <Route element={<ErrorPage />} path='*' />
         </Routes>
         <Footer />
     </div>

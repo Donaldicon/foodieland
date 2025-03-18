@@ -4,7 +4,7 @@ import CheckOut from '../components/CheckOut'
 
 const About = () => {
   return (
-    <div>
+    <div className='pt-[50px]'>
       <Chef />
       <CheckOut />
     </div>

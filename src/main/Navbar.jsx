@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { DarkModeContext } from './DarkMode'
 
@@ -9,8 +9,16 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-const Navbar = () => {
+import { faNavicon } from '@fortawesome/free-solid-svg-icons'
 
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleNavBar = () => {
+    setIsOpen(!isOpen);
+  }
+
+  // DarkMode
   const {theme, toggleTheme} = useContext(DarkModeContext);
 
     const scrollToTop = () => {
@@ -20,10 +28,10 @@ const Navbar = () => {
     
   return (
     <div className='z-[100] fixed w-full top-0'>
-        <div className='flex items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] shadow-xl font-Inter bg-gray-200 '>
+        <div className='lg:flex items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] shadow-xl font-Inter bg-gray-200 hidden'>
             <div>
               <NavLink to='/' onClick={scrollToTop}>
-                <img src={foodie} alt="foodieland logo" className='w-[100px]' />
+                <img src={foodie} alt="foodieland logo" className='w-[150px] bigScreens:w-[220px]' />
               </NavLink>
             </div>
 
@@ -58,6 +66,64 @@ const Navbar = () => {
 
 
         </div>
+
+
+        {/* Mobile View */}
+        <div className='  py-[20px] shadow-xl font-Inter bg-gray-200 lg:hidden relative'>
+          <div className='flex items-center justify-between px-[5%]'>
+            <div>
+              <NavLink to='/' onClick={scrollToTop}>
+                <img src={foodie} alt="foodieland logo" className='w-[70px]' />
+              </NavLink>
+            </div>
+
+            <div
+            onClick={toggleTheme}
+            className="w-10 h-5 flex items-center bg-gray-300 dark:bg-gray-600 rounded-full p-1 cursor-pointer transition-all duration-500"
+            >
+              <div
+                className={`w-4 h-4 bg-white dark:bg-yellow-400 rounded-full shadow-md transform transition-all duration-500 ${
+                  theme === "dark" ? "translate-x-[18px]" : "translate-x-0"
+                }`}>
+                </div>
+            </div>
+            
+            <div onClick={toggleNavBar} className='cursor-pointer'>
+              {isOpen ? 'X' : <FontAwesomeIcon icon={faNavicon}/>}
+            </div>
+
+
+
+  
+            </div>
+            <div className={`absolute bg-gray-600 dark:bg-gray-300 dark:text-gray-700 text-gray-200 h-[280px] top-[64px] transition-all ease-in-out right-0 duration-700 ${isOpen ? 'opacity-100 w-[200px] smallPhones:w-[230px] md:w-[300px]' : 'opacity-0 w-0'}`}>
+              {isOpen && (
+                  <div className='flex flex-col items-center justify-center pt-5 space-y-5'>
+                    <NavLink to='/'  onClick={scrollToTop}>Home</NavLink>
+                    <NavLink to='/Recipes'  onClick={scrollToTop}>Recipes</NavLink>
+                    <NavLink to='/Blog'  onClick={scrollToTop}>Blog</NavLink>
+                    <NavLink to='/Contact'  onClick={scrollToTop}>Contact</NavLink>
+                    <NavLink to='/About'  onClick={scrollToTop}>About Us</NavLink>
+                    <div className='flex space-x-5'>
+                      <NavLink to='https://web.facebook.com/profile.php?id=61551611320101' target='_blank'>
+                        <FontAwesomeIcon icon={faFacebookF}/>
+                      </NavLink>
+                      <NavLink to='https://twitter.com/azih_donald' target='_blank'>
+                        <FontAwesomeIcon icon={faTwitter}/>
+                      </NavLink>
+                      <NavLink to='https://www.instagram.com/chizitelu_azih/?igsh=ZzYxczVyMW5uZ28%3D&utm_source=qr#' target='_blank'>
+                        <FontAwesomeIcon icon={faInstagram}/>
+                      </NavLink> 
+                    </div>
+                  </div>
+                )}
+
+            </div>
+
+        </div>
+
+
+
     </div>
   )
 }

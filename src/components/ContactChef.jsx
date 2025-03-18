@@ -17,10 +17,10 @@ const ContactChef = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <div className="flex space-x-10 items-start mb-20 px-[5%] bigScreens:px-[13%] font-Inter">
-      <img src={contact} alt="" className="w-[30%] max-h-[380px] object-contain"/>
+    <div className="flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 items-start mb-10 md:mb-20 px-[5%] bigScreens:px-[13%] font-Inter">
+      <img src={contact} alt="" className=" md:w-[30%] max-h-[380px] object-contain"/>
       <form
-        className="w-[65%] bg-white dark:text-gray-200 dark:bg-gray-700 bg rounded-lg space-y-6 text-[14px] text-black text-opacity-60 "
+        className="w-full md:w-[65%] bg-white dark:text-gray-200 dark:bg-gray-700 bg rounded-lg space-y-6 text-[10px] md:text-[14px] text-black text-opacity-60 "
       >
         <div className="grid grid-cols-2 gap-6">
           <div>
@@ -60,7 +60,7 @@ const ContactChef = () => {
           <div className="relative  text-black dark:text-gray-200 text-opacity-40">
             <label className="block mb-1 font-semibold">Enquiry Details</label>
             <div
-              className="border p-3 w-full rounded flex justify-between items-center cursor-pointer bg-white"
+              className="border p-3 w-full rounded flex justify-between items-center cursor-pointer bg-white text-black text-opacity-40"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {formData.enquiry || "Select an option"}
@@ -74,7 +74,7 @@ const ContactChef = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute bg-white border rounded-lg mt-[0px] w-full shadow-lg z-10"
+                  className="absolute bg-white border rounded-lg mt-[0px] w-full shadow-lg z-10 text-black text-opacity-40"
                 >
                   {["Advertising", "General Inquiry", "Support", "Feedback"].map((option) => (
                     <li
@@ -83,7 +83,7 @@ const ContactChef = () => {
                         setFormData({ ...formData, enquiry: option });
                         setIsDropdownOpen(false);
                       }}
-                      className="p-3 hover:bg-gray-100 cursor-pointer"
+                      className="p-3 hover:bg-gray-100 cursor-pointer "
                     >
                       {option}
                     </li>
@@ -105,7 +105,7 @@ const ContactChef = () => {
           ></textarea>
         </div>
 
-        <div className="text-left">
+        <div className="text-left mx-auto">
           <button
             type="submit"
             className="bg-black text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"

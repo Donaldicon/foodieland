@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {
       screens:{
+        smallPhones: '360px',
         bigScreens: '2100px',
       },
       fontFamily: {
