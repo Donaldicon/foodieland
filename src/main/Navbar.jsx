@@ -18,17 +18,23 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   }
 
+  const handleClosure = () => {
+    // setIsOpen(false)
+  }
+
+
   // DarkMode
   const {theme, toggleTheme} = useContext(DarkModeContext);
 
     const scrollToTop = () => {
         window.scrollTo(0,0);
       }
+
     const navLinksClass = ({isActive}) => isActive ? 'bg-black text-white px-2 py-2 rounded-lg' : 'text-black'
     
   return (
     <div className='z-[100] fixed w-full top-0'>
-        <div className='lg:flex items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] shadow-xl font-Inter bg-gray-200 hidden'>
+        <div className='lg:flex items-center justify-between px-[5%] bigScreens:px-[13%] py-[30px] shadow-xl font-Inter bg-gray-200 bg-opacity-80 backdrop-filter backdrop-blur-lg hidden'>
             <div>
               <NavLink to='/' onClick={scrollToTop}>
                 <img src={foodie} alt="foodieland logo" className='w-[150px] bigScreens:w-[220px]' />
@@ -96,22 +102,37 @@ const Navbar = () => {
 
   
             </div>
-            <div className={`absolute bg-gray-600 dark:bg-gray-300 dark:text-gray-700 text-gray-200 h-[280px] top-[64px] transition-all ease-in-out right-0 duration-700 ${isOpen ? 'opacity-100 w-[200px] smallPhones:w-[230px] md:w-[300px]' : 'opacity-0 w-0'}`}>
+            <div className={`absolute bg-gray-600  dark:bg-gray-200 dark:text-gray-700 text-gray-200 w-full top-[64px] transition-all ease-in-out right-0 duration-700 ${isOpen ? 'opacity-100 h-[280px] smallPhones:h-[290px] md:h-[300px]' : 'opacity-0 h-0'}`}>
               {isOpen && (
                   <div className='flex flex-col items-center justify-center pt-5 space-y-5'>
-                    <NavLink to='/'  onClick={scrollToTop}>Home</NavLink>
-                    <NavLink to='/Recipes'  onClick={scrollToTop}>Recipes</NavLink>
-                    <NavLink to='/Blog'  onClick={scrollToTop}>Blog</NavLink>
-                    <NavLink to='/Contact'  onClick={scrollToTop}>Contact</NavLink>
-                    <NavLink to='/About'  onClick={scrollToTop}>About Us</NavLink>
+                    <NavLink to='/' onClick={() => {
+                      scrollToTop();
+                      handleClosure()
+                    }}>Home</NavLink>
+                    <NavLink to='/Recipes' onClick={() => {
+                      scrollToTop();
+                      handleClosure()
+                    }}>Recipes</NavLink>
+                    <NavLink to='/Blog'  onClick={() => {
+                      scrollToTop();
+                      handleClosure()
+                    }}>Blog</NavLink>
+                    <NavLink to='/Contact'  onClick={() => {
+                      scrollToTop();
+                      handleClosure()
+                    }}>Contact</NavLink>
+                    <NavLink to='/About'  onClick={() => {
+                      scrollToTop();
+                      handleClosure()
+                    }}>About Us</NavLink>
                     <div className='flex space-x-5'>
-                      <NavLink to='https://web.facebook.com/profile.php?id=61551611320101' target='_blank'>
+                      <NavLink to='https://web.facebook.com/profile.php?id=61551611320101' target='_blank' onClick={handleClosure}>
                         <FontAwesomeIcon icon={faFacebookF}/>
                       </NavLink>
-                      <NavLink to='https://twitter.com/azih_donald' target='_blank'>
+                      <NavLink to='https://twitter.com/azih_donald' target='_blank' onClick={handleClosure}>
                         <FontAwesomeIcon icon={faTwitter}/>
                       </NavLink>
-                      <NavLink to='https://www.instagram.com/chizitelu_azih/?igsh=ZzYxczVyMW5uZ28%3D&utm_source=qr#' target='_blank'>
+                      <NavLink to='https://www.instagram.com/chizitelu_azih/?igsh=ZzYxczVyMW5uZ28%3D&utm_source=qr#' target='_blank' onClick={handleClosure}>
                         <FontAwesomeIcon icon={faInstagram}/>
                       </NavLink> 
                     </div>
