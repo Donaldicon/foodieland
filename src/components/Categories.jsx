@@ -21,6 +21,9 @@ import imgSix from '../assets/categories/img-six.png'
 
 
 const Categories = () => {
+    const scrollToTop = () => {
+        window.scroll(0,0)
+    }
   return (
     <motion.div
     initial={{y:100, opacity:0 }}
@@ -31,7 +34,7 @@ const Categories = () => {
         <div className='px-[5%] bigScreens:px-[13%] font-Inter pt-5 lg:pt-10 dark:text-gray-200 hidden lg:block'>
             <div className='flex items-center justify-between'>
                 <h1 className='text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold '>Categories</h1>
-                <Link to='/ViewCategories'>
+                <Link to='/ViewCategories' onClick={scrollToTop}>
                 <button className='text-[15px] font-medium bg-[#E7FAFE] px-4 py-3 rounded-2xl bigScreens:text-[18px] text-black cursor-pointer'>View All Categories</button>
                 </Link>
             </div>
@@ -95,7 +98,7 @@ const Categories = () => {
         <div className='px-[5%] font-Inter pt-5 lg:pt-10 dark:text-gray-200 lg:hidden'>
             <div className='flex items-center justify-between'>
                 <h1 className='text-[14px] md:text-[20px] font-semibold '>Categories</h1>
-                <Link to='/ViewCategories'>
+                <Link to='/ViewCategories' onClick={scrollToTop}>
                 <button className='text-[10px] md:text-[14px] font-medium bg-[#E7FAFE] px-2 py-3 rounded-2xl text-black cursor-pointer'>View All Categories</button>
                 </Link>
             </div>

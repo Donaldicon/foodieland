@@ -17,7 +17,7 @@ const CheckOut = () => {
             <h1 className='text-[14px] md:text-[20px] lg:text-[30px] leading-[35px] xl:text-[45px] xl:leading-[55px] bigScreens:text-[55px] bigScreens:leading-[65px] font-semibold'>Check out @foodieland on Instagram</h1>
             <p className='mt-[1px] md:mt-2 lg:mt-3 w-[95%] lg:w-[720px] bigScreens:w-[1000px] text-[10px] md:text-[12px] lg:text-[14px] xl:text-[17px] bigScreens:text-[20px] text-center text-black dark:text-gray-200 text-opacity-50'>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
             <motion.div
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             viewport={{ once: true }}
