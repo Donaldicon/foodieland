@@ -105,6 +105,7 @@ const Hero = () => {
                     transform: transformStyle,
                     opacity: opacity,
                     zIndex: zIndex,
+
                   }}
                 >
                   <div className="relative w-[55%] lg:w-[60%] xl:w-[50%] bigScreens:w-[55%] h-[250px] lg:h-full flex items-center justify-center bg-[#E7FAFE] shadow-xl rounded-l-3xl overflow-hidden">
